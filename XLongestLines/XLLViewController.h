@@ -10,4 +10,8 @@
 
 @interface XLLViewController : UIViewController
 
+{
+    UITextView *textView;
+}
+
 @end

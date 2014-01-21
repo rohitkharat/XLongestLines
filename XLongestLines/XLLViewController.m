@@ -16,8 +16,11 @@
 
 - (void)viewDidLoad
 {
+    textView = [[UITextView alloc]initWithFrame:CGRectMake(0, 0, 320, 460)];
+    textView.text = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"test" ofType:@"txt"] encoding:NSUTF8StringEncoding error:nil];
+    [self.view addSubview:textView];
+
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning

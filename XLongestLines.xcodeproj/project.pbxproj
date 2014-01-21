@@ -21,6 +21,7 @@
 		7119892F188DE34C00EA59C2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71198911188DE34C00EA59C2 /* UIKit.framework */; };
 		71198937188DE34C00EA59C2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 71198935188DE34C00EA59C2 /* InfoPlist.strings */; };
 		71198939188DE34C00EA59C2 /* XLongestLinesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 71198938188DE34C00EA59C2 /* XLongestLinesTests.m */; };
+		71198943188DF04400EA59C2 /* test.txt in Resources */ = {isa = PBXBuildFile; fileRef = 71198942188DF04400EA59C2 /* test.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		71198934188DE34C00EA59C2 /* XLongestLinesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "XLongestLinesTests-Info.plist"; sourceTree = "<group>"; };
 		71198936188DE34C00EA59C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		71198938188DE34C00EA59C2 /* XLongestLinesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XLongestLinesTests.m; sourceTree = "<group>"; };
+		71198942188DF04400EA59C2 /* test.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				7119891F188DE34C00EA59C2 /* Main.storyboard */,
 				71198922188DE34C00EA59C2 /* XLLViewController.h */,
 				71198923188DE34C00EA59C2 /* XLLViewController.m */,
+				71198942188DF04400EA59C2 /* test.txt */,
 				71198925188DE34C00EA59C2 /* Images.xcassets */,
 				71198914188DE34C00EA59C2 /* Supporting Files */,
 			);
@@ -231,6 +234,7 @@
 			files = (
 				71198926188DE34C00EA59C2 /* Images.xcassets in Resources */,
 				71198918188DE34C00EA59C2 /* InfoPlist.strings in Resources */,
+				71198943188DF04400EA59C2 /* test.txt in Resources */,
 				71198921188DE34C00EA59C2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
