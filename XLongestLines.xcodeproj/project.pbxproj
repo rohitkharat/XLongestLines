@@ -22,6 +22,8 @@
 		71198937188DE34C00EA59C2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 71198935188DE34C00EA59C2 /* InfoPlist.strings */; };
 		71198939188DE34C00EA59C2 /* XLongestLinesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 71198938188DE34C00EA59C2 /* XLongestLinesTests.m */; };
 		71198943188DF04400EA59C2 /* test.txt in Resources */ = {isa = PBXBuildFile; fileRef = 71198942188DF04400EA59C2 /* test.txt */; };
+		71198946188E575800EA59C2 /* XLLLinesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71198945188E575800EA59C2 /* XLLLinesViewController.m */; };
+		71198949188EA2A400EA59C2 /* XLLFilesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71198948188EA2A400EA59C2 /* XLLFilesViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,10 @@
 		71198936188DE34C00EA59C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		71198938188DE34C00EA59C2 /* XLongestLinesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XLongestLinesTests.m; sourceTree = "<group>"; };
 		71198942188DF04400EA59C2 /* test.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.txt; sourceTree = "<group>"; };
+		71198944188E575800EA59C2 /* XLLLinesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLLLinesViewController.h; sourceTree = "<group>"; };
+		71198945188E575800EA59C2 /* XLLLinesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLLLinesViewController.m; sourceTree = "<group>"; };
+		71198947188EA2A400EA59C2 /* XLLFilesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLLFilesViewController.h; sourceTree = "<group>"; };
+		71198948188EA2A400EA59C2 /* XLLFilesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLLFilesViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +125,10 @@
 				7119891F188DE34C00EA59C2 /* Main.storyboard */,
 				71198922188DE34C00EA59C2 /* XLLViewController.h */,
 				71198923188DE34C00EA59C2 /* XLLViewController.m */,
+				71198944188E575800EA59C2 /* XLLLinesViewController.h */,
+				71198945188E575800EA59C2 /* XLLLinesViewController.m */,
+				71198947188EA2A400EA59C2 /* XLLFilesViewController.h */,
+				71198948188EA2A400EA59C2 /* XLLFilesViewController.m */,
 				71198942188DF04400EA59C2 /* test.txt */,
 				71198925188DE34C00EA59C2 /* Images.xcassets */,
 				71198914188DE34C00EA59C2 /* Supporting Files */,
@@ -255,8 +265,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				71198924188DE34C00EA59C2 /* XLLViewController.m in Sources */,
+				71198946188E575800EA59C2 /* XLLLinesViewController.m in Sources */,
 				7119891A188DE34C00EA59C2 /* main.m in Sources */,
 				7119891E188DE34C00EA59C2 /* XLLAppDelegate.m in Sources */,
+				71198949188EA2A400EA59C2 /* XLLFilesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

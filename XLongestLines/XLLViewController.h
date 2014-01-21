@@ -8,10 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XLLViewController : UIViewController
+@interface XLLViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
 
 {
     UITextView *textView;
+    NSString *textFromFile;
+    NSMutableArray *PickerArray;
+    
 }
+
+@property (nonatomic, strong) NSArray *sentencesArray;
+@property (nonatomic, strong) NSMutableArray *sortedArray;
+@property (nonatomic) NSInteger numberOfLines;
+
 
 @end
