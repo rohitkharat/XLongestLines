@@ -22,21 +22,30 @@
 
 - (void)viewDidLoad
 {
-    textView = [[UITextView alloc]initWithFrame:CGRectMake(0, 100, 320, 50)];
     textFromFile = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"test" ofType:@"txt"] encoding:NSUTF8StringEncoding error:nil];
-    textView.text = textFromFile;
-    [self.view addSubview:textView];
+    
+    fileTextView.text = textFromFile;
+    fileTextView.scrollEnabled = TRUE;
+    fileTextView.editable = FALSE;
+    fileTextView.layer.borderWidth = 0.5f;
+    fileTextView.layer.borderColor = [[UIColor grayColor] CGColor];
+    
     self.sentencesArray = [textFromFile componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@".!?"]];
 
-    NSLog(@"no. of sentences in file = %lu", (unsigned long)[self.sentencesArray count]);
-    NSLog(@"array: %@" , self.sentencesArray);
+ //   NSLog(@"no. of sentences in file = %lu", (unsigned long)[self.sentencesArray count]);
+ //   NSLog(@"array: %@" , self.sentencesArray);
+    
+    optimizedArray = [self optimizeArray:[NSMutableArray arrayWithArray:self.sentencesArray]];
 
+    NSLog(@"optimized array: %@", optimizedArray);
 
-    self.sortedArray = [self heap_sort:[NSMutableArray arrayWithArray:self.sentencesArray]];
-    NSLog(@"sorted numbers %@", self.sortedArray);
+   // self.sortedArray = [self heap_sort:[NSMutableArray arrayWithArray:self.sentencesArray]];
+    self.sortedArray = [self heap_sort:optimizedArray];
+
+    NSLog(@"sorted array %@", self.sortedArray);
     PickerArray = [[NSMutableArray alloc]init];
     
-    for (int i = 0; i<100; i++) {
+    for (int i = 0; i< [optimizedArray count]; i++) {
         PickerArray[i] = [NSNumber numberWithInt:i+1];
     }
     
@@ -45,6 +54,36 @@
     
 }
 
+-(NSMutableArray*)optimizeArray: (NSMutableArray *) array
+{
+    NSMutableArray *optimized = [[NSMutableArray alloc]init];
+    for (NSString *string in array) {
+        if (string.length > 0) {
+            NSLog(@"str length > 0");
+            NSString *trimmedLine = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            [optimized addObject:trimmedLine];
+
+        }
+    }
+    
+    return optimized;
+}
+
+//- (IBAction)openExistingDocument:(id)sender {
+//    NSOpenPanel* panel = [NSOpenPanel openPanel];
+//    
+//    // This method displays the panel and returns immediately.
+//    // The completion handler is called when the user selects an
+//    // item or cancels the panel.
+//    [panel beginWithCompletionHandler:^(NSInteger result){
+//        if (result == NSFileHandlingPanelOKButton) {
+//            NSURL*  theDoc = [[panel URLs] objectAtIndex:0];
+//            
+//            // Open  the document.
+//        }
+//        
+//    }];
+//}
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
     return 1;
@@ -129,21 +168,6 @@
     return arr2;
 }
 
--(BOOL) verfiySorted:(NSMutableArray *)arr
-{
-    NSLog(@"Verifying sorted list...");
-    for(NSUInteger i = 0; i < arr.count-1; i++) {
-        NSInteger a = [[arr objectAtIndex:i] integerValue];
-        NSInteger b = [[arr objectAtIndex:i+1] integerValue];
-        if(a > b) {
-            NSLog(@"** List is NOT sorted! **");
-            return NO;
-        }
-    }
-    NSLog(@"List is sorted!");
-    return YES;
-}
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -153,10 +177,6 @@
 
 //code to be added:
 //if last character in file is . or ? or ! then only reduce sentence count by 1.
-//display text inside a scroll view.
-//trim leading spaces in each sentence.
-//  eg: NSString *string = @" this text has spaces before and after ";
-//  NSString *trimmedString = [string stringByTrimmingCharactersInSet:
-//                           [NSCharacterSet whitespaceCharacterSet]];
-//scroll view for text file display
+//change heap sort code
+//remove logs
 @end

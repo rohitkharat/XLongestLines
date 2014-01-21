@@ -14,8 +14,13 @@
     UITextView *textView;
     NSString *textFromFile;
     NSMutableArray *PickerArray;
+    NSMutableArray *optimizedArray;
+    
+    IBOutlet UITextView *fileTextView;
     
 }
+
+-(NSMutableArray*)optimizeArray: (NSMutableArray *) array;
 
 @property (nonatomic, strong) NSArray *sentencesArray;
 @property (nonatomic, strong) NSMutableArray *sortedArray;
