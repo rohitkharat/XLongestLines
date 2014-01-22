@@ -22,6 +22,7 @@
 
 - (void)viewDidLoad
 {
+    self.navigationItem.title = @"X - Longest Lines App";
     textFromFile = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"test" ofType:@"txt"] encoding:NSUTF8StringEncoding error:nil];
     
     fileTextView.text = textFromFile;
@@ -30,28 +31,28 @@
     fileTextView.layer.borderWidth = 0.5f;
     fileTextView.layer.borderColor = [[UIColor grayColor] CGColor];
     
-    self.sentencesArray = [textFromFile componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@".!?"]];
+    [self reloadData];
 
- //   NSLog(@"no. of sentences in file = %lu", (unsigned long)[self.sentencesArray count]);
- //   NSLog(@"array: %@" , self.sentencesArray);
+    [super viewDidLoad];
+    
+}
+
+-(int)reloadData
+{
+    self.sentencesArray = [textFromFile componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@".!?"]];
     
     optimizedArray = [self optimizeArray:[NSMutableArray arrayWithArray:self.sentencesArray]];
-
-    NSLog(@"optimized array: %@", optimizedArray);
-
-   // self.sortedArray = [self heap_sort:[NSMutableArray arrayWithArray:self.sentencesArray]];
+    
     self.sortedArray = [self heap_sort:optimizedArray];
-
-    NSLog(@"sorted array %@", self.sortedArray);
+    
     PickerArray = [[NSMutableArray alloc]init];
     
     for (int i = 0; i< [optimizedArray count]; i++) {
         PickerArray[i] = [NSNumber numberWithInt:i+1];
     }
     
-//    [self verfiySorted:sortedArray];
-    [super viewDidLoad];
-    
+
+    return [optimizedArray count];
 }
 
 -(NSMutableArray*)optimizeArray: (NSMutableArray *) array
@@ -59,7 +60,6 @@
     NSMutableArray *optimized = [[NSMutableArray alloc]init];
     for (NSString *string in array) {
         if (string.length > 0) {
-            NSLog(@"str length > 0");
             NSString *trimmedLine = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
             [optimized addObject:trimmedLine];
 
@@ -69,21 +69,6 @@
     return optimized;
 }
 
-//- (IBAction)openExistingDocument:(id)sender {
-//    NSOpenPanel* panel = [NSOpenPanel openPanel];
-//    
-//    // This method displays the panel and returns immediately.
-//    // The completion handler is called when the user selects an
-//    // item or cancels the panel.
-//    [panel beginWithCompletionHandler:^(NSInteger result){
-//        if (result == NSFileHandlingPanelOKButton) {
-//            NSURL*  theDoc = [[panel URLs] objectAtIndex:0];
-//            
-//            // Open  the document.
-//        }
-//        
-//    }];
-//}
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
     return 1;
@@ -104,6 +89,16 @@
     self.numberOfLines = [PickerArray[row] integerValue];
 }
 
+//- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
+//{
+//    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 0.0f, 300.0f, 60.0f)]; //x and width are mutually correlated
+//    label.textAlignment = NSTextAlignmentCenter;
+//    label.text = [PickerArray objectAtIndex:row];
+//    return label;
+//
+//}
+//
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showSortedLines"]) {
 
@@ -112,6 +107,14 @@
         linesViewController.numberOfLines = (self.numberOfLines < 1) ? 1 : self.numberOfLines;
         //linesViewController.numberOfLines = self.numberOfLines;
     }
+    if ([segue.identifier isEqualToString:@"showTextFiles"]) {
+    
+        UINavigationController *navigationController = segue.destinationViewController;
+        XLLFilesViewController *filesViewController =[[navigationController viewControllers]objectAtIndex:0];
+
+        filesViewController.myDelegate = self;
+    }
+
 }
 
 -(NSMutableArray *) sift_down:(NSMutableArray *)arr startt: (NSInteger) start endd: (NSInteger) end
@@ -141,7 +144,6 @@
 -(NSMutableArray *) heapify:(NSMutableArray *)arr countt: (NSInteger) count
 {
     NSMutableArray *arr3;
-    NSLog(@"heapify");
 
     NSInteger start = (count - 2) / 2;
     
@@ -155,6 +157,8 @@
 
 -(NSMutableArray *) heap_sort:(NSMutableArray *)arr
 {
+    NSLog(@"heapsort");
+
     NSMutableArray *arr2;
     NSMutableArray *arr1 = [self heapify:arr countt:arr.count];
     NSInteger end = arr.count - 1;
@@ -167,6 +171,23 @@
     
     return arr2;
 }
+
+-(void) FilesViewControllerDismissed:(NSString *)fileNameToBeSent
+{
+    NSString *fileNameReceived = fileNameToBeSent;
+    NSLog(@"file name received: %@", fileNameReceived);
+    NSString *docsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *filePath = [docsDirectory stringByAppendingPathComponent:fileNameReceived];
+    NSLog(@"file path: %@", filePath);
+    textFromFile = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:NULL];
+    fileTextView.text = textFromFile;
+    [self reloadData];
+    [picker reloadAllComponents];
+    [picker selectRow:[PickerArray count]/2 inComponent:0 animated:YES];
+
+
+}
+
 
 
 - (void)didReceiveMemoryWarning

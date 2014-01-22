@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XLLFilesViewController.h"
 
-@interface XLLViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
+@interface XLLViewController : UIViewController <FilesDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 
 {
     UITextView *textView;
@@ -17,6 +18,7 @@
     NSMutableArray *optimizedArray;
     
     IBOutlet UITextView *fileTextView;
+    IBOutlet UIPickerView *picker;
     
 }
 

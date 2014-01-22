@@ -36,7 +36,7 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.navigationItem.title = [NSString stringWithFormat:@"%ld Longest Lines", (long)self.numberOfLines];
+    self.navigationItem.title = [NSString stringWithFormat:@"%ld Longest Line(s)", (long)self.numberOfLines];
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,7 +70,7 @@
 //    NSString *trimmedLine = [line stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
     cell.textLabel.text = [self.sentencesArray objectAtIndex:indexPath.row];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%lu words", (unsigned long)[cell.textLabel.text length]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%lu characters", (unsigned long)[cell.textLabel.text length]];
     
     return cell;
 }

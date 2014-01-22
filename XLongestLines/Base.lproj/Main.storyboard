@@ -17,9 +17,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T3I-dg-dlx">
-                                <rect key="frame" x="254" y="387" width="46" height="30"/>
+                                <rect key="frame" x="120" y="350" width="68" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Get">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -27,7 +28,7 @@
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jGU-PQ-QoJ">
-                                <rect key="frame" x="120" y="344" width="80" height="162"/>
+                                <rect key="frame" x="129" y="366" width="50" height="162"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" playsSound="YES"/>
@@ -38,24 +39,25 @@
                                 </connections>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uNV-aL-uhN">
-                                <rect key="frame" x="137" y="74" width="46" height="30"/>
+                                <rect key="frame" x="95" y="70" width="118" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Select File">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="hzQ-tB-lhZ" kind="modal" id="Yoo-tf-3rA"/>
+                                    <segue destination="y2k-cE-2c7" kind="modal" identifier="showTextFiles" id="iJW-5s-mAp"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Longest" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="skj-h7-n5v">
-                                <rect key="frame" x="50" y="441" width="62" height="21"/>
+                                <rect key="frame" x="61" y="465" width="62" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lines" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAf-HU-z4U">
-                                <rect key="frame" x="208" y="441" width="41" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Line(s)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAf-HU-z4U">
+                                <rect key="frame" x="192" y="465" width="55" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -78,13 +80,14 @@
                     <navigationItem key="navigationItem" id="3WO-Ew-epU"/>
                     <connections>
                         <outlet property="fileTextView" destination="ran-9i-OvE" id="gt2-MN-apO"/>
+                        <outlet property="picker" destination="jGU-PQ-QoJ" id="fZ8-zp-Y5D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="596" y="-324"/>
         </scene>
-        <!--Files View Controller - Text Files-->
+        <!--Files View Controller - Documents Directory-->
         <scene sceneID="nVi-A6-seo">
             <objects>
                 <tableViewController id="h8U-Al-4pL" customClass="XLLFilesViewController" sceneMemberID="viewController">
@@ -93,7 +96,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="XCd-wJ-GV7">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="XCd-wJ-GV7">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XCd-wJ-GV7" id="v2g-ln-CXS">
@@ -103,17 +106,22 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="h8U-Al-4pL" id="h0i-hk-25q"/>
-                            <outlet property="delegate" destination="h8U-Al-4pL" id="5tR-ox-Z6h"/>
+                            <outlet property="dataSource" destination="h8U-Al-4pL" id="VSr-Up-wRq"/>
+                            <outlet property="delegate" destination="h8U-Al-4pL" id="Fg7-mH-zad"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Text Files" id="Urb-JL-yUP">
-                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="SCd-Xi-d1R"/>
+                    <navigationItem key="navigationItem" title="Documents Directory" id="Urb-JL-yUP">
+                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="SCd-Xi-d1R">
+                            <connections>
+                                <segue destination="Ql6-iK-BIw" kind="unwind" identifier="unwind" unwindAction="unwindFromSegue:" id="dne-l6-088"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nak-lf-Kz5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Ql6-iK-BIw" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1069" y="378"/>
+            <point key="canvasLocation" x="1122" y="388"/>
         </scene>
         <!--Lines View Controller-->
         <scene sceneID="BRu-Hx-svL">
@@ -163,22 +171,22 @@
             <point key="canvasLocation" x="17" y="-324"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="YiJ-rh-E2I">
+        <scene sceneID="rjl-fp-Qpu">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hzQ-tB-lhZ" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="y2k-cE-2c7" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="W0M-TV-J5S">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nIS-PP-dum">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="h8U-Al-4pL" kind="relationship" relationship="rootViewController" id="Chg-La-hVI"/>
+                        <segue destination="h8U-Al-4pL" kind="relationship" relationship="rootViewController" id="eYl-1Y-9vX"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VoQ-lm-rzT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ffv-KB-gOO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="604" y="378"/>
+            <point key="canvasLocation" x="596" y="388"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

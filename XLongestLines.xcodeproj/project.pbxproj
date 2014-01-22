@@ -24,6 +24,8 @@
 		71198943188DF04400EA59C2 /* test.txt in Resources */ = {isa = PBXBuildFile; fileRef = 71198942188DF04400EA59C2 /* test.txt */; };
 		71198946188E575800EA59C2 /* XLLLinesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71198945188E575800EA59C2 /* XLLLinesViewController.m */; };
 		71198949188EA2A400EA59C2 /* XLLFilesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71198948188EA2A400EA59C2 /* XLLFilesViewController.m */; };
+		7119894C188F7A7900EA59C2 /* test2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7119894B188F7A7900EA59C2 /* test2.txt */; };
+		71198950188FCA7400EA59C2 /* test3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7119894F188FCA7400EA59C2 /* test3.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		71198945188E575800EA59C2 /* XLLLinesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLLLinesViewController.m; sourceTree = "<group>"; };
 		71198947188EA2A400EA59C2 /* XLLFilesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLLFilesViewController.h; sourceTree = "<group>"; };
 		71198948188EA2A400EA59C2 /* XLLFilesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLLFilesViewController.m; sourceTree = "<group>"; };
+		7119894B188F7A7900EA59C2 /* test2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test2.txt; sourceTree = "<group>"; };
+		7119894F188FCA7400EA59C2 /* test3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test3.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +134,8 @@
 				71198947188EA2A400EA59C2 /* XLLFilesViewController.h */,
 				71198948188EA2A400EA59C2 /* XLLFilesViewController.m */,
 				71198942188DF04400EA59C2 /* test.txt */,
+				7119894B188F7A7900EA59C2 /* test2.txt */,
+				7119894F188FCA7400EA59C2 /* test3.txt */,
 				71198925188DE34C00EA59C2 /* Images.xcassets */,
 				71198914188DE34C00EA59C2 /* Supporting Files */,
 			);
@@ -244,7 +250,9 @@
 			files = (
 				71198926188DE34C00EA59C2 /* Images.xcassets in Resources */,
 				71198918188DE34C00EA59C2 /* InfoPlist.strings in Resources */,
+				71198950188FCA7400EA59C2 /* test3.txt in Resources */,
 				71198943188DF04400EA59C2 /* test.txt in Resources */,
+				7119894C188F7A7900EA59C2 /* test2.txt in Resources */,
 				71198921188DE34C00EA59C2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

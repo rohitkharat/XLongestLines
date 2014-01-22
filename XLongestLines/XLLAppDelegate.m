@@ -11,10 +11,44 @@
 @implementation XLLAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    // Override point for customization after application launch.
+{    
+  //  [self copyFolderToDocumentsDirectory:@"test2.txt"];
+  //  [self copyFolderToDocumentsDirectory:@"test.txt"];
+    
+    NSString *docsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+
+    NSString *myFolderPath = [[NSBundle mainBundle] resourcePath] ;
+    NSArray *textFilesList = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:myFolderPath error:nil];
+    
+    [textFilesList enumerateObjectsUsingBlock:^(NSString *string, NSUInteger index, BOOL *stop){
+        if ([[string pathExtension] isEqualToString:@"txt"]) {
+            NSString *destFolderPath = [docsDirectory stringByAppendingPathComponent:string];
+
+            [[NSFileManager defaultManager] copyItemAtPath:[myFolderPath stringByAppendingPathComponent:string] toPath:destFolderPath error:nil];
+        }
+    }];
+    
     return YES;
 }
+
+-(void)copyFolderToDocumentsDirectory: (NSString *)fileName
+{
+    NSString *docsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *myFolderPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:fileName];
+    NSString *destFolderPath = [docsDirectory stringByAppendingPathComponent:fileName];
+    NSLog(@"will try to copy from %@ to \n%@", myFolderPath, destFolderPath);
+
+    
+    NSError *error = nil;
+    
+    if ([[NSFileManager defaultManager] copyItemAtPath:myFolderPath toPath:destFolderPath error:&error]) {
+        NSLog(@"File copied from %@ to \n%@", myFolderPath, destFolderPath);
+    }
+    else
+        NSLog(@"Error while copying file: %@", [error description]);
+    
+}
+
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
