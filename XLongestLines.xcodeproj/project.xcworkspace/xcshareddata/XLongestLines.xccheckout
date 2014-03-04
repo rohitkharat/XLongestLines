@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>B5E250D6-F4E1-4DD2-9D93-3D4B208D032C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>XLongestLines</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>4DAF02D9-0D67-4CD8-8FD4-4DD72A27D689</key>
+		<string>https://github.com/rohitkharat/XLongestLines.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>XLongestLines.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>4DAF02D9-0D67-4CD8-8FD4-4DD72A27D689</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/rohitkharat/XLongestLines.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>4DAF02D9-0D67-4CD8-8FD4-4DD72A27D689</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>4DAF02D9-0D67-4CD8-8FD4-4DD72A27D689</string>
+			<key>IDESourceControlWCCName</key>
+			<string>XLongestLines</string>
+		</dict>
+	</array>
+</dict>
+</plist>

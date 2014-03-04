@@ -39,10 +39,10 @@
                                 </connections>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uNV-aL-uhN">
-                                <rect key="frame" x="95" y="70" width="118" height="45"/>
+                                <rect key="frame" x="39" y="70" width="243" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Select File">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Select Another File">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -74,12 +74,20 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="DYw-EH-r13"/>
                                 </connections>
                             </textView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBr-Pq-qIF">
+                                <rect key="frame" x="81" y="95" width="158" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="3WO-Ew-epU"/>
                     <connections>
                         <outlet property="fileTextView" destination="ran-9i-OvE" id="gt2-MN-apO"/>
+                        <outlet property="fileTitle" destination="gBr-Pq-qIF" id="noE-2m-FKK"/>
                         <outlet property="picker" destination="jGU-PQ-QoJ" id="fZ8-zp-Y5D"/>
                     </connections>
                 </viewController>
@@ -113,10 +121,13 @@
                     <navigationItem key="navigationItem" title="Documents Directory" id="Urb-JL-yUP">
                         <barButtonItem key="rightBarButtonItem" title="Cancel" id="SCd-Xi-d1R">
                             <connections>
-                                <segue destination="Ql6-iK-BIw" kind="unwind" identifier="unwind" unwindAction="unwindFromSegue:" id="dne-l6-088"/>
+                                <segue destination="Ql6-iK-BIw" kind="unwind" unwindAction="unwindToXLLViewController:" id="Rxd-nh-vk8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="Ql6-iK-BIw" kind="unwind" unwindAction="unwindToXLLViewController:" id="x4E-3k-H1M"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nak-lf-Kz5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Ql6-iK-BIw" userLabel="Exit" sceneMemberID="exit"/>

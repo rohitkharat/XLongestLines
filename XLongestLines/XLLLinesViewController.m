@@ -31,11 +31,6 @@
 {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.navigationItem.title = [NSString stringWithFormat:@"%ld Longest Line(s)", (long)self.numberOfLines];
 }
 
@@ -49,13 +44,11 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
     NSInteger integer = (self.numberOfLines < [self.sentencesArray count]) ? self.numberOfLines : [self.sentencesArray count];
     return integer;
 }
@@ -63,11 +56,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-    
-//    NSString *line = [self.sentencesArray objectAtIndex:indexPath.row];
-//    NSString *trimmedLine = [line stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
     cell.textLabel.text = [self.sentencesArray objectAtIndex:indexPath.row];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%lu characters", (unsigned long)[cell.textLabel.text length]];

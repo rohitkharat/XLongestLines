@@ -12,8 +12,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {    
-  //  [self copyFolderToDocumentsDirectory:@"test2.txt"];
-  //  [self copyFolderToDocumentsDirectory:@"test.txt"];
     
     NSString *docsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
 
@@ -36,7 +34,6 @@
     NSString *docsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *myFolderPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:fileName];
     NSString *destFolderPath = [docsDirectory stringByAppendingPathComponent:fileName];
-    NSLog(@"will try to copy from %@ to \n%@", myFolderPath, destFolderPath);
 
     
     NSError *error = nil;

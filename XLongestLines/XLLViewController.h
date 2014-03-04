@@ -19,10 +19,13 @@
     
     IBOutlet UITextView *fileTextView;
     IBOutlet UIPickerView *picker;
+    IBOutlet UILabel *fileTitle;
     
 }
 
 -(NSMutableArray*)optimizeArray: (NSMutableArray *) array;
+- (IBAction)unwindToXLLViewController:(UIStoryboardSegue *)segue;
+
 
 @property (nonatomic, strong) NSArray *sentencesArray;
 @property (nonatomic, strong) NSMutableArray *sortedArray;

@@ -16,7 +16,6 @@
 @implementation XLLFilesViewController
 
 @synthesize filesList;
-//@synthesize xllViewController;
 @synthesize selectedFile;
 @synthesize myDelegate;
 
@@ -33,64 +32,34 @@
 {
     [super viewDidLoad];
 
-    NSFileManager* fileManager = [NSFileManager defaultManager];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory , NSUserDomainMask, YES);
     NSString* documentsDir = [paths objectAtIndex:0];
 
     self.filesList = [[NSMutableArray alloc]init];
-    self.filesList = [NSMutableArray arrayWithArray:[self listFileAtPath:documentsDir]];
-//    self.xllViewController = [[XLLViewController alloc]init];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-//    NSString *documentsPath= [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-//    NSError *error;
-//    NSArray* files= [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsPath error:&error];
-//    NSRange range;
-//    
-//    for (NSString* file in files) {
-//        range = [file rangeOfString:@".txt"
-//                            options:NSCaseInsensitiveSearch];
-//        if (range.location!= NSNotFound) {
-//            [self.filesList addObject:file];
-//        }
-//    }
-//    
-//    NSLog(@"files list %@", files);
+    self.filesList = [NSMutableArray arrayWithArray:[self getFileAtPath:documentsDir]];
 }
 
--(NSArray *)listFileAtPath:(NSString *)path
+//gets all files at given path
+-(NSArray *)getFileAtPath:(NSString *)path
 {
-    //-----> LIST ALL FILES <-----//
-    NSLog(@"LISTING ALL FILES FOUND");
-    
-    int count;
-    
-    NSArray *directoryContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:NULL];
-    for (count = 0; count < (int)[directoryContent count]; count++)
-    {
-        NSLog(@"File %d: %@", (count + 1), [directoryContent objectAtIndex:count]);
-    }
-    return directoryContent;
+    NSArray *filesArray = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:NULL];
+    return filesArray;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
     return [self.filesList count];
 }
 
@@ -98,22 +67,20 @@
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
     cell.textLabel.text = [self.filesList objectAtIndex:indexPath.row];
     
     return cell;
 }
 
+//method for cancel button
 -(IBAction)dismissModal:(id)sender
 {
-    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+//send the selected file name back to XLLViewController and dismiss this view controller
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //get file name and path and send it to other view controller
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
     self.selectedFile = selectedCell.textLabel.text;
     
@@ -122,8 +89,6 @@
     }
     
     [self dismissViewControllerAnimated:YES completion:nil];
-  //  [self performSegueWithIdentifier:@"unwind" sender:self];
-
 }
 
 
